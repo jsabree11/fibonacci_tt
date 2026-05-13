@@ -63,15 +63,11 @@ module tt_um_jsabree11_fibonacci_checker (
                     b    <= a + b;
                 end
             end
-            else begin
-                // restart automatically for continuous operation
-                a      <= 8'd0;
-                b      <= 8'd1;
-                next   <= 8'd1;
-
-                done   <= 1'b0;
-                is_fib <= 1'b0;
-            end
+		else begin
+    			// hold result until reset
+    			done   <= done;
+    			is_fib <= is_fib;
+		end
         end
     end
 
